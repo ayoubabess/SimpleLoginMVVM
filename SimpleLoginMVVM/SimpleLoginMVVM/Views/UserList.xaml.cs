@@ -17,4 +17,14 @@ namespace SimpleLoginMVVM.Views
 			InitializeComponent ();
 		}
 	}
+	 protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            if(this.BindingContext is LoginViewModel listeOfUsers)
+            {
+                listeOfUsers.Onapering();
+            }
+            //your code here;
+
+        }
 }
