@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SimpleLoginMVVM.Views.UserList">
+ 
+   
+    <ListView x:Name="listView" Margin="20" SelectedItem="{Binding SelectedUser }" ItemsSource="{Binding ListUsers}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+
+                <!--<Label Text="{Binding UserAccounts.Username}" />-->
+
+                <ViewCell>
+                    <StackLayout Margin="20,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Label Text="{Binding Username}" VerticalTextAlignment="Center" 
+                                FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  />
+                      
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

@@ -1,0 +1,1 @@
+F:\xamarin\SimpleLoginMVVM\SimpleLoginMVVM\SimpleLoginMVVM.UWP\SimpleLoginMVVM.UWP.csproj;x86

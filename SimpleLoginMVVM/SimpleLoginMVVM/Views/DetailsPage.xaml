@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SimpleLoginMVVM.Views.DetailsPage">
+    <ContentPage.Content>
+
+        <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+            <BoxView HeightRequest="10"/>
+            
+            <Frame BackgroundColor="#BF043055" HasShadow="False">
+                <StackLayout Orientation="Vertical" Spacing="10">
+
+                    <Entry x:Name="Email" Text="{Binding UserAccounts.Username }" Placeholder="Email"   
+                           PlaceholderColor="Black" HeightRequest="40"  IsEnabled="False" 
+                           Keyboard="Email"  
+                           />
+                    <Entry x:Name="Password" Text="{Binding UserAccounts.Password}" Placeholder="Passowrd"   
+                           PlaceholderColor="Black" HeightRequest="40"   
+                           IsPassword="False"  
+                         />
+                </StackLayout>
+            </Frame>
+            <Button Command="{Binding UpdateCommand}" Text="Update" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#088da5" />
+            <Button Command="{Binding DeleteCommand}" Text="Delete" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#088da5" />
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage> 
