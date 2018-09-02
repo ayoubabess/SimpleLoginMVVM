@@ -66,12 +66,13 @@ namespace  SimpleLoginMVVM.ViewModels
             {
                 _selecteduser = value;
                 if (value != null)
-                    UserAccounts = _selecteduser;
+              {      UserAccounts = _selecteduser;
                
                 Navigation.PushAsync(new DetailsPage
                 {
                     BindingContext = this
                 });
+                }
                     OnPropertyChanged("SelectedUser");
           
             }
