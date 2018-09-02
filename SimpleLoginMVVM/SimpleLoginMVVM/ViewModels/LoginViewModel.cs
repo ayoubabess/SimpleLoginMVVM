@@ -20,6 +20,10 @@ namespace  SimpleLoginMVVM.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+         internal void Onapering()
+        {
+            UserAccounts = new UserAccounts();
+        }
        
         private ObservableCollection<UserAccounts> _listusers;
 
