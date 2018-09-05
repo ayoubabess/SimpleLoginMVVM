@@ -1,0 +1,54 @@
+public class User
+{
+    [PrimaryKey, AutoIncrement]
+    public int Id { get; set; }
+    [MaxLength(8)]
+    public string username { get; set; }
+     [MaxLength(8)]
+    public string passowrd { get; set; }
+
+    [OneToMany(CascadeOperations = CascadeOperation.All)]      // One to many relationship with  Departement
+
+    public List<Departement> Departements { get; set; }
+}
+
+public class Departement
+{
+    [PrimaryKey, AutoIncrement]
+    public int Id { get; set; }
+   public string Description { get; set; }
+    [ForeignKey(typeof(User))]     // Specify the foreign key
+    public int UserId { get; set; }
+    public DateTime Time { get; set; }
+   
+
+    [ManyToOne]      // Many to one relationship with User
+    public User User { get; set; }
+}
+var db = Utils.CreateConnection();
+db.CreateTable<User>();
+db.CreateTable<Departement>();
+
+var user= new User() {
+    //user attributes
+};
+db.Insert(user);   // Insert the object in the database
+
+var departement = new Departement() {
+  // departement  attributes
+};
+db.Insert(departement);   // Insert the object in the database
+
+// Objects created, let's stablish the relationship
+user.Departements = new List<Departement> { departement };
+
+db.UpdateWithChildren(user);   // Update the changes into the database
+if (departement.User == user) {
+    // relationship already set
+}
+
+// Get the object and the relationships
+var storedDepartement = db.GetWithChildren<Departement>(departement.Id);
+if (user.id.Equals(storedDepartement.User.id)) {
+    Debug.WriteLine("Object and relationships loaded correctly!");
+}
